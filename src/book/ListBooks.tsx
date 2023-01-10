@@ -13,7 +13,7 @@ export function ListBooks() {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  });
 
   return (
     <div className="flex flex-wrap gap-4">
