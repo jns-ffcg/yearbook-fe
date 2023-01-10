@@ -1,4 +1,4 @@
-import { MouseEventHandler, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { FiTrash2 } from "react-icons/fi";
 import { BookService } from "./book-service";
@@ -28,7 +28,7 @@ export function Book() {
     if (bookId !== undefined) {
       getBook(bookId);
     }
-  }, [bookId]);
+  });
 
   return (
     <div>
