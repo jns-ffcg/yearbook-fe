@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { FiTrash2 } from "react-icons/fi";
-import { BookService } from "./Book.service.";
+import { BookService } from "./Book.service";
 import { IBook } from "./Book.interface";
 
 export function Book() {

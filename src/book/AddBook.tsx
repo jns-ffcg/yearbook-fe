@@ -1,6 +1,6 @@
 import { FormEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { BookService } from "./Book.service.";
+import { BookService } from "./Book.service";
 
 function AddBook() {
   const [bookName, setBookName] = useState("");

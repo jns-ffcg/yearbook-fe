@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { IBook } from "./Book.interface";
-import { BookService } from "./Book.service.";
+import { BookService } from "./Book.service";
 import { FiPlus } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 
