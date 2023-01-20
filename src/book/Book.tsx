@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { FiTrash2 } from "react-icons/fi";
-import { BookService } from "./book-service";
+import { BookService } from "./Book.service.";
 import { IBook } from "./Book.interface";
 
 export function Book() {
@@ -9,14 +9,14 @@ export function Book() {
   const [book, setBook] = useState<IBook>();
 
   const { bookId } = useParams();
-  const bookService = new BookService();
 
-  const getBook = async (bookId: string) => {
-    const response = await bookService.getBook(bookId);
-    setBook(response);
-  };
+  // const getBook = async (bookId: string) => {
+  //   const response = await bookService.getBook(bookId);
+  //   setBook(response);
+  // };
 
   const removeBook = async () => {
+    const bookService = new BookService();
     console.log("Clicked!");
     if (bookId !== undefined) {
       await bookService.deleteBook(bookId);
@@ -25,10 +25,16 @@ export function Book() {
   };
 
   useEffect(() => {
+    const bookService = new BookService();
+    const getBook = async (bookId: string) => {
+      const response = await bookService.getBook(bookId);
+      setBook(response);
+    };
+
     if (bookId !== undefined) {
       getBook(bookId);
     }
-  });
+  }, [bookId]);
 
   return (
     <div>
