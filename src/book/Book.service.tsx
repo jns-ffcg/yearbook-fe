@@ -4,13 +4,15 @@ import { IDefaultResponse } from "../common/interfaces/default-response.interfac
 import { IBook, ICreateBookDto } from "./Book.interface";
 
 export class BookService {
-  private _url = "https://yearbook-api.azure-api.net/book";
+  private _url = `${process.env.REACT_APP_API_URL}/book`;
   private _config: AxiosRequestConfig = {
     headers: {
-      "Ocp-Apim-Subscription-Key": "a4f2e978b23644578f0edf7f6ec7aeba",
+      "Ocp-Apim-Subscription-Key": process.env.REACT_APP_API_SUBSCRIPTION_KEY,
     },
   };
   async getBooks() {
+    console.log(this._config);
+
     const response = await axios.get<IBook[]>(this._url, this._config);
     return response.data;
   }
